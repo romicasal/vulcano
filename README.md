@@ -13,17 +13,20 @@ Dominan la predicción del clima mediante un complejo sistema informático.
 * El planeta Vulcano se desplaza con una velocidad angular de 5 grados/día en sentido anti­horario, su distancia con respecto al sol es de 1000Km.
 * Todas las órbitas son circulares.
 
-
 ### Clima
 
 * Cuando los tres planetas están alineados entre sí y a su vez alineados con respecto al sol, el sistema solar experimenta un período de sequía.
 * Cuando los tres planetas no están alineados, forman entre sí un triángulo. Es sabido que en el momento en el que el sol se encuentra dentro del triángulo, el sistema solar experimenta un período de lluvia, teniendo éste, un pico de intensidad cuando el perímetro del triángulo está en su máximo.
 * Las condiciones óptimas de presión y temperatura se dan cuando los tres planetas están alineados entre sí pero no están alineados con el sol.
 
+
+## Aplicación
+
+Se utilizó  [Web2py](http://web2py.com) como framework de desarrollo ágil para la generación de la app web
+
 ## Código
 
 Lenguaje *Python 3.7*
-Para generar la base de datos y correr la aplicación web se utilizó el framework web2py
 
 En *modules* se encuentra el código fuente principal que puede ser ejecutado fuera del framework 
 
@@ -31,16 +34,10 @@ En *modules/pruebas/grafica.py* se puede ejecutar una simulación de los tres pl
 
 En *modules/pruebas/pronostico.py* se puede ejecutar una simulación que simplemente devuelve la estadistica de la cantidad de periodos por clima y el día de máxima lluvia 
 
-### Web2py
+En *models/db.py* se encuentra la definicion de las tablas
 
-Se utilizó  [Web2py](http://web2py.com) como framework de desarrollo ágil para la generación de la página web
+En *models/scheduler.py* se encuentra la tarea programada task_cargar_clima que se corre todos los dias para generar el pronóstico si pasaron los 10 años desde el último generado
 
-*default/index* contiene la pantalla principal del programa
-*default/clima* contiene la vista de la tabla clima_registro
-*default/planetas* contiene la vista de la tabla planetas
-
-*models/db.py* contiene la definicion de las tablas
-*models/scheduler.py* contiene la tarea programada que se corre todos los dias para generar el pronóstico si pasaron los 10 años desde el último
 
 ## Despliegue
 
