@@ -1,0 +1,35 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+<div class="jumbotron jumbotron-fluid background" style="background-color: #333; color:white; padding:30px;word-wrap:break-word;">
+  <div class="container center">
+    <h1 class="display-4">Predicción del Clima a 10 años</h1>
+  </div>
+</div>
+{{end}}
+
+<div class="card mb-3">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{=URL('static', 'images/animation.gif')}}" class="card-img" alt="Sistema Solar">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+		<ul class="list-group">
+		  <li class="list-group-item">Períodos con lluvia: {{=estadisticas.find(lambda row: row.clima=='lluvia')[0].valor}}</li>
+		  <li class="list-group-item">Períodos con sequía: {{=estadisticas.find(lambda row: row.clima=='sequia')[0].valor}}</li>
+		  <li class="list-group-item">Períodos óptimos: {{=estadisticas.find(lambda row: row.clima=='optimo')[0].valor}}</li>
+		  <li class="list-group-item">Día con pico máximo de lluvias: {{=estadisticas.find(lambda row: row.clima=='pico_lluvia')[0].valor}}</li>
+		</ul>
+		<hr>
+		<h5>API REST Pública</h5>
+		<label>Request: </label> <span>http://casalromina.pythonanywhere.com/vulcano/api/clima?dia=255</span>
+		<br>
+		<label>Response: </label><code>{"dia":"255", "clima":"lluvia"}</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
